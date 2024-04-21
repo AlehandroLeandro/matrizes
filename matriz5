@@ -1,0 +1,27 @@
+package matrizes;
+
+import javax.swing.*;
+
+public class matriz5 {
+    public static void main(String[] args) {
+
+        int n = 4;
+
+        int matriz[][] = new int[n][n];
+
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                matriz[i][j] = (i+1) * (j+1);
+            }
+        }
+
+        StringBuilder tabelaMultiplicacao = new StringBuilder();
+        for(int i=0; i < n; i++){
+            for( int j = 0; j < n; j++){
+                tabelaMultiplicacao.append(String.format("%2d ", matriz[i][j])).append(" | ");
+            }
+            tabelaMultiplicacao.append("\n");
+        }
+        JOptionPane.showMessageDialog(null, tabelaMultiplicacao.toString());
+    }
+}
