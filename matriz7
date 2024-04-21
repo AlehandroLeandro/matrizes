@@ -1,0 +1,45 @@
+package matrizes;
+
+import javax.swing.*;
+import java.util.Random;
+
+public class matriz7 {
+    public static void main(String[] args) {
+
+        int n = Integer.parseInt(JOptionPane.showInputDialog("Ordem da matriz: "));
+        Random rd  = new Random();
+
+        int matriz[][] = new int[n][n];
+        int somas[] = new int[n];
+
+        for(int i = 0; i < n-1; i++) {
+            for(int j = 0; j < n; j++) {
+                matriz[i][j] = rd.nextInt(10);
+            }
+        }
+
+        //faz a soma das colunas
+        for(int j = 0; j < n; j++ ) {
+            int soma = 0;
+            for(int i = 0; i < n; i++ ){
+                soma += matriz[i][j];
+            }
+            somas[j] = soma;
+        }
+        //preenche a ultima linha da matriz com as comas
+        for(int i = 0; i < n; i++) {
+            matriz[n-1][i] = somas[i];
+        }
+
+        StringBuilder matrizComp = new StringBuilder();
+        for(int i=0; i < n; i++){
+            for( int j = 0; j < n; j++) {
+                    matrizComp.append((matriz[i][j])).append(" | ");
+            }
+            matrizComp.append("\n");
+        }
+
+        JOptionPane.showMessageDialog(null, matrizComp.toString());
+
+    }
+}
