@@ -1,0 +1,36 @@
+package matrizes;
+
+import javax.swing.*;
+import java.text.DecimalFormat;
+import java.util.Random;
+
+public class matriz2 {
+    public static void main(String[] args) {
+        Random rd  = new Random();
+        DecimalFormat df = new DecimalFormat("###,##");
+        int linha = 20;
+        int coluna = 10;
+
+        int matriz[][] = new int[linha][coluna];
+        int somas[] = new int[linha];
+
+        for(int i = 0; i < linha; i++) {
+            int soma = 0;
+            for(int j = 0; j < coluna; j++) {
+                matriz[i][j] = rd.nextInt(10);
+                soma += matriz[i][j];
+            }
+            somas[i] = soma;
+        }
+        StringBuilder mensSomas = new StringBuilder();
+        mensSomas.append("Somas: ");
+        for(int sum : somas) {
+            mensSomas.append(sum).append(" | ");
+        }
+        //JOptionPane.showInputDialog(null, "Linha :" + mensSomas.toString());
+
+        for(int i = 0; i < 20; i++) {
+            JOptionPane.showMessageDialog(null,"Somas linha " + (i+1) +" : " + somas[i]);
+        }
+   }
+}
